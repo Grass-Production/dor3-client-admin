@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+}
+
+:root {
+  --headerHeight: 70px;
+}
+
+.light {
+  --background: 245, 246, 250;
+
+  --black: 32, 34, 36;
+  --white: 255, 255, 255;
+  --blue: 72, 128, 255;
+
+  --primary-text: 32, 34, 36;
+  --sub-text: 64, 64, 64;
+  --lable-text: 100, 100, 100;
+  --caption-text: 86, 86, 86;
+
+  --active: 72, 128, 255;
+
+  --success: 0, 182, 155;
+  --danger: 239, 56, 38;
+  --warning: 255, 167, 86;
+
+  background: rgba(var(--background));
+}
+
+.dark {
+  --background: 27, 36, 49;
+
+  --black: 32, 34, 36;
+  --white: 255, 255, 255;
+  --blue: 72, 128, 255;
+
+  --primary-text: 255, 255, 255;
+  --sub-text: 255, 255, 255;
+  --lable-text: 242, 242, 242;
+  --caption-text: 255, 255, 255;
+
+  --active: 72, 128, 255;
+
+  --success: 0, 182, 155;
+  --danger: 239, 56, 38;
+  --warning: 255, 167, 86;
+
+  background: rgba(var(--background));
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: 245, 246, 250;
+
+    --black: 32, 34, 36;
+    --white: 255, 255, 255;
+    --blue: 72, 128, 255;
+
+    --success: 0, 182, 155;
+    --danger: 239, 56, 38;
+    --warning: 255, 167, 86;
+
+    background: rgba(var(--background));
+  }
+}
