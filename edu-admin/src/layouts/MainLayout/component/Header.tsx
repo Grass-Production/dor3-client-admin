@@ -3,12 +3,13 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { Avatar, Badge, IconButton, ListItemAvatar } from '@mui/material';
 
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
-export const Header = (): JSX.Element => {
+export const Header = ({ handleSendIsExpand }): JSX.Element => {
+  const [isExpand, setIsExpand] = useState(false);
   const [theme, setThem] = useState('light');
   const body = document.body;
 
@@ -18,14 +19,26 @@ export const Header = (): JSX.Element => {
     body.classList.add(nameTheme);
   };
 
+  const handleExpandSidebar = () => {
+    handleSendIsExpand((n) => !n);
+    setIsExpand(!isExpand);
+  };
+
   return (
     <>
       <div className=" fixed top-0 w-full px-5 z-10 bg-primary-color flex h-[var(--headerHeight)] justify-between items-center">
         <div className=" flex items-center gap-6">
           <div className=" flex items-center gap-6">
-            <IconButton sx={{ p: '10px' }} aria-label="menu">
-              <MenuIcon className=" text-primary-text/60" fontSize="medium" />
-            </IconButton>
+            {isExpand ? (
+              <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
+                <MenuIcon className=" text-primary-text/60" fontSize="medium" />
+              </IconButton>
+            ) : (
+              <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
+                <MenuOpenIcon className=" text-primary-text/60" fontSize="medium" />
+              </IconButton>
+            )}
+
             <img src="src/assets/images/Logo.png" alt="" />
           </div>
           <div className=" flex px-4 py-2 bg-second-color w-96 border border-gray-400 rounded-[50px]">
