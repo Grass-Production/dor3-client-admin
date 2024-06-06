@@ -1,6 +1,9 @@
 import { MainLayout, RouterHandler } from '@/layouts';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import routerlist from '@/constants/routes';
+import { SignIn } from '@/pages';
+import { NotFound } from '@/pages/NotFound';
 
 const RouterList = routerlist.map((r) => {
   const Page = r.component;
@@ -16,13 +19,16 @@ const RouterList = routerlist.map((r) => {
 
 export const router = createBrowserRouter([
   {
-    path: '/',
     element: <RouterHandler />,
-    errorElement: <h1>Error</h1>,
+    errorElement: <NotFound />,
     children: [
       {
         element: <MainLayout />,
         children: RouterList,
+      },
+      {
+        path: '/login',
+        element: <SignIn />,
       },
     ],
   },

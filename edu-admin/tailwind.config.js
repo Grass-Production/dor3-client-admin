@@ -16,6 +16,8 @@ export default {
         // warning: "rgba(var(--warning))",
 
         background: "rgba(var(--background))",
+        "primary-color": "rgba(var(--primary-color))",
+        "second-color": "rgba(var(--second-color))",
         black: "rgba(var(--black))",
         white: "rgba(var(--white))",
         blue: "rgba(var(--blue))",
@@ -24,6 +26,7 @@ export default {
         'lable-text': "rgba(var(--lable-text))",
         'caption-text': "rgba(var(--caption-text))",
         active: "rgba(var(--active))",
+        disbale: "rgba(var(--disbale))",
         success: "rgba(var(--success))",
         danger: "rgba(var(--danger))",
         warning: "rgba(var(--warning))",

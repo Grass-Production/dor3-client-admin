@@ -9,10 +9,17 @@
 
 :root {
   --headerHeight: 70px;
+  --sidebarHeight: calc(100vh - var(--headerHeight));
 }
-
+@layer components {
+  .page-content::before {
+    @apply pointer-events-none invisible block h-[var(--headerHeight)] flex-none content-[''];
+  }
+}
 .light {
   --background: 245, 246, 250;
+  --primary-color: 255, 255, 255;
+  --second-color: 245, 246, 250;
 
   --black: 32, 34, 36;
   --white: 255, 255, 255;
@@ -23,7 +30,8 @@
   --lable-text: 100, 100, 100;
   --caption-text: 86, 86, 86;
 
-  --active: 72, 128, 255;
+  --active: 67, 127, 238;
+  --disbale: 224, 224, 224;
 
   --success: 0, 182, 155;
   --danger: 239, 56, 38;
@@ -34,6 +42,8 @@
 
 .dark {
   --background: 27, 36, 49;
+  --primary-color: 39, 49, 66;
+  --second-color: 50, 61, 78;
 
   --black: 32, 34, 36;
   --white: 255, 255, 255;
@@ -44,7 +54,8 @@
   --lable-text: 242, 242, 242;
   --caption-text: 255, 255, 255;
 
-  --active: 72, 128, 255;
+  --active: 67, 127, 238;
+  --disbale: 224, 224, 224;
 
   --success: 0, 182, 155;
   --danger: 239, 56, 38;
@@ -53,13 +64,93 @@
   background: rgba(var(--background));
 }
 
+@media (min-width: 740px) and (max-width: 1023px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+@media (max-width: 739px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+.st0 {
+  fill: #fff;
+}
+.st1 {
+  fill: #b5dfea;
+}
+.st2 {
+  opacity: 0.55;
+  fill: #90cedd;
+}
+.st3 {
+  fill: #d7f0f9;
+}
+.st4 {
+  fill: #0582c1;
+}
+.st5 {
+  fill: #79c9e8;
+}
+.st6 {
+  fill: #ffbf4d;
+}
+.st7 {
+  fill: #00668e;
+}
+.st8 {
+  fill: #05556d;
+}
+.st9 {
+  fill: #f98d3d;
+}
+.st10 {
+  fill: #ed701b;
+}
+.st11 {
+  fill: none;
+}
+.st12 {
+  fill: #efaa3a;
+}
+.st13 {
+  opacity: 0.29;
+  fill: #f98d2b;
+}
+.st14 {
+  fill: #49b4d6;
+}
+.st15 {
+  fill: #ff9f50;
+}
+.st16 {
+  fill: #f77e2d;
+}
+.st17 {
+  opacity: 0.55;
+  fill: url(#SVGID_1_);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --background: 245, 246, 250;
+    --primary-color: 255, 255, 255;
+    --second-color: 245, 246, 250;
 
     --black: 32, 34, 36;
     --white: 255, 255, 255;
     --blue: 72, 128, 255;
+
+    --primary-text: 32, 34, 36;
+    --sub-text: 64, 64, 64;
+    --lable-text: 100, 100, 100;
+    --caption-text: 86, 86, 86;
+
+    --active: 72, 128, 255;
+    --disbale: 224, 224, 224;
 
     --success: 0, 182, 155;
     --danger: 239, 56, 38;
