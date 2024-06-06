@@ -4,3 +4,4 @@ export { default as IconDashboard } from '@/assets/svg/IconDashboard';
 export { default as IconFeedback } from '@/assets/svg/IconFeedback';
 export { default as IconUsersFour } from '@/assets/svg/IconUsersFour';
 export { default as IconArrowDownCircle } from '@/assets/svg/IconArrowDownCircle';
+export { default as IconGoogle } from '@/assets/svg/IconGoogle';

@@ -4,13 +4,13 @@ import { Accounts, ActivityLog, CloudDinary, Dashboard, Feedbacks, Members, Prof
 
 export const ROUTES = {
   Accounts: '/accounts',
-  ActivityLog: '/activityLog',
-  CloudDinary: '/cloudDinary',
+  ActivityLog: '/activitylog',
+  CloudDinary: '/clouddinary',
   Dashboard: '/',
   Feedbacks: '/feedbacks',
   Members: '/members',
   Profile: '/profile',
-  SignIn: '/signIn',
+  SignIn: '/login',
 };
 
 const routerlist = [
@@ -54,6 +54,7 @@ export const routeTitleMapper = {
   [ROUTES.ActivityLog]: 'ActivityLog',
   [ROUTES.CloudDinary]: 'CloudDinary',
   [ROUTES.Feedbacks]: 'Feedbacks',
+  [ROUTES.SignIn]: 'Login',
 };
 
 export const getRouteTitle = (route: string): string => {

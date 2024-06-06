@@ -13,7 +13,7 @@ module.exports = {
     'prefer-const': 'warn', // Chỉ cảnh báo khi có thể sử dụng const thay vì let
     '@typescript-eslint/explicit-function-return-type': 'warn', // Cảnh báo khi hàm không có kiểu trả về
     '@typescript-eslint/explicit-module-boundary-types': 'warn', // Cảnh báo khi không có kiểu cho biên giới module
-    // "@typescript-eslint/no-explicit-any": "warn", // Cảnh báo khi sử dụng kiểu "any"
+    "@typescript-eslint/no-explicit-any": "warn", // Cảnh báo khi sử dụng kiểu "any"
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
