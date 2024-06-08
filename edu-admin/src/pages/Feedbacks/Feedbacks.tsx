@@ -1,7 +1,7 @@
 const Feedbacks = (): JSX.Element => {
   return (
     <>
-      <h1>Feedbacks</h1>
+      <h1 className=" text-primary-text text-3xl font-bold">Feedbacks</h1>
     </>
   );
 };
