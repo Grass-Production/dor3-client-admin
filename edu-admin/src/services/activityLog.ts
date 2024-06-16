@@ -1,3 +1,4 @@
+import { IUser } from '@/interface/IUser';
 import { get } from '@/services/axios';
 
 // export const getActivityLog = async (page = '') => {
@@ -10,12 +11,12 @@ import { get } from '@/services/axios';
 //   return res;
 // };
 
-export const getActivityLog = async () => {
-  const res = await get(`user/info`, {
+export const getActivityLog = async (): Promise<IUser> => {
+  const res = await get<{ user: IUser }>(`user/info`, {
     headers: {
       'Content-Type': 'application / json',
     },
     withCredentials: true,
   });
-  return res;
+  return res.user;
 };

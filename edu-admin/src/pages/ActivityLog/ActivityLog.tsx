@@ -31,6 +31,7 @@ const ActivityLog = (): JSX.Element => {
     <>
       <h1 className=" text-primary-text text-3xl font-bold">ActivityLog</h1>
       {isToast && <h1 className=" text-primary-text text-3xl font-bold">ActivityLog</h1>}
+
       <div>
         <button onClick={refreshtoken}>Refreshtoken</button>
       </div>

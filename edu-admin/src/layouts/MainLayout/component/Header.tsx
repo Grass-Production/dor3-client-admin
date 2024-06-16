@@ -7,16 +7,21 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { Avatar, Badge, IconButton, ListItemAvatar } from '@mui/material';
 
 import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 export const Header = ({ handleSendIsExpand }): JSX.Element => {
   const [isExpand, setIsExpand] = useState(false);
-  const [theme, setThem] = useState('light');
+  const nameTheme = localStorage.getItem('theme');
+  const [theme, setThem] = useState(nameTheme || 'light');
   const body = document.body;
 
-  const handleChangeTheme = (nameTheme: string): void => {
-    setThem(nameTheme);
+  useEffect(() => {
     body.className = '';
-    body.classList.add(nameTheme);
+    body.classList.add(theme);
+  }, [theme]);
+
+  const handleChangeTheme = (nameTheme: string): void => {
+    localStorage.setItem('theme', nameTheme);
+    setThem(nameTheme);
   };
 
   const handleExpandSidebar = () => {
@@ -29,15 +34,17 @@ export const Header = ({ handleSendIsExpand }): JSX.Element => {
       <div className=" fixed top-0 w-full px-5 z-10 bg-primary-color flex h-[var(--headerHeight)] justify-between items-center">
         <div className=" flex items-center gap-6">
           <div className=" flex items-center gap-6">
-            {isExpand ? (
-              <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
-                <MenuIcon className=" text-primary-text/60" fontSize="medium" />
-              </IconButton>
-            ) : (
-              <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
-                <MenuOpenIcon className=" text-primary-text/60" fontSize="medium" />
-              </IconButton>
-            )}
+            <>
+              {isExpand ? (
+                <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
+                  <MenuIcon className=" text-primary-text/60" fontSize="medium" />
+                </IconButton>
+              ) : (
+                <IconButton onClick={handleExpandSidebar} sx={{ p: '10px' }} aria-label="menu">
+                  <MenuOpenIcon className=" text-primary-text/60" fontSize="medium" />
+                </IconButton>
+              )}
+            </>
 
             <img src="src/assets/images/Logo.png" alt="" />
           </div>
