@@ -1,0 +1,9 @@
+{
+  "sidebar": {
+    "Dashboard": "Dashboard",
+    "Accounts": "Quản lý tài khoản",
+    "ActivityLog": "Quản lý trang thái Log",
+    "CloudDinary": "Quản lý CloudDinary",
+    "Feedbacks": "Quản lý Feedbacks"
+  }
+}

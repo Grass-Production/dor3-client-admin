@@ -1,8 +1,30 @@
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 const Accounts = (): JSX.Element => {
+  const [inputElement, setInputElement] = useState<HTMLInputElement | null>(null);
+  const { t } = useTranslation('mainLayout');
+
+  const focusInput = () => {
+    if (inputElement) {
+      inputElement.focus();
+    }
+  };
+
+  // Hàm này được gọi mỗi khi component re-render, điều này làm cho component re-render không cần thiết.
+  const setInputRef = (element) => {
+    if (inputElement !== element) {
+      setInputElement(element);
+    }
+  };
+
+  console.log('Component re-rendered');
+
   return (
-    <>
-      <h1>Account Management</h1>
-    </>
+    <div>
+      <input ref={setInputRef} type="text" />
+      <button onClick={focusInput}>Focus the input</button>
+    </div>
   );
 };
 

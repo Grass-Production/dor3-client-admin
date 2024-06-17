@@ -1,15 +1,25 @@
 import { Button, Checkbox, IconButton, Paper } from '@mui/material';
-
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import { IconGoogle } from '@/assets/svg';
+import { login } from '@/services/loginApi';
 
 const SignIn = (): JSX.Element => {
   const [isShowPass, setIsShowPass] = useState(false);
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+
   const handleIsShowPass = () => {
     setIsShowPass(!isShowPass);
   };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const res = await login({ email: email, password: pass });
+    console.log(res);
+  };
+
   return (
     <>
       <div
@@ -31,15 +41,17 @@ const SignIn = (): JSX.Element => {
             </Button>
           </div>
 
-          <form action="">
+          <form onSubmit={handleLogin}>
             <div className=" mb-10">
               <h1 className=" text-lg font-semibold text-black/80 mb-3">Email address</h1>
               <input
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 placeholder="email"
                 className="peer  outline-blue rounded-lg w-full p-4 border border-[#D8D8D8] bg-[#F1F4F9]"
                 type="email"
                 name=""
-                id=""
+                id="email"
               />
             </div>
             <div className=" mb-6">
@@ -49,11 +61,13 @@ const SignIn = (): JSX.Element => {
               </div>
               <div className=" flex justify-between items-center outline-blue rounded-lg w-full p-4 border border-[#D8D8D8] bg-[#F1F4F9]">
                 <input
+                  onChange={(e) => setPass(e.target.value)}
+                  value={pass}
                   placeholder="email"
                   className=" w-full outline-none"
                   type={isShowPass ? 'password' : 'text'}
                   name=""
-                  id=""
+                  id="pass"
                 />
                 <IconButton onClick={handleIsShowPass} sx={{ p: 0 }}>
                   {isShowPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
@@ -69,7 +83,9 @@ const SignIn = (): JSX.Element => {
               <h1 className=" text-lg font-semibold text-black/60">Remember Password</h1>
             </div> */}
 
-            <button className=" bg-blue rounded-lg w-full py-4 font-bold text-white text-xl mb-5">Sign In</button>
+            <button type="submit" className=" bg-blue rounded-lg w-full py-4 font-bold text-white text-xl mb-5">
+              Sign In
+            </button>
             <h1 className=" text-center text-lg font-semibold text-black/60">
               Don’t have an account?{' '}
               <strong className=" font-bold text-lg text-[#5A8CFF] underline cursor-pointer">Create Account</strong>

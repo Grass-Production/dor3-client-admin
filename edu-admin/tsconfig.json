@@ -34,6 +34,6 @@
     "forceConsistentCasingInFileNames": true, // Bắt buộc kiểm tra chữ hoa chữ thường trong tên file
     "noImplicitReturns": true // Báo lỗi khi có hàm không trả về giá trị
   },
-  "include": ["src"],
+  "include": ["src", "src/services/axios/.indexdraf"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
