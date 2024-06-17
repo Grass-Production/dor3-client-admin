@@ -9,10 +9,11 @@ import { Avatar, Badge, IconButton, ListItemAvatar } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from 'react';
 export const Header = ({ handleSendIsExpand }): JSX.Element => {
-  const [isExpand, setIsExpand] = useState(false);
   const nameTheme = localStorage.getItem('theme');
-  const [theme, setThem] = useState(nameTheme || 'light');
   const body = document.body;
+
+  const [isExpand, setIsExpand] = useState(false);
+  const [theme, setThem] = useState(nameTheme || 'light');
 
   useEffect(() => {
     body.className = '';

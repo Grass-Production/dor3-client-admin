@@ -1,0 +1,9 @@
+{
+  "sidebar": {
+    "Dashboard": "Dashboard",
+    "Accounts": "Accounts",
+    "ActivityLog": "ActivityLog",
+    "CloudDinary": "CloudDinary",
+    "Feedbacks": "Feedbacks"
+  }
+}

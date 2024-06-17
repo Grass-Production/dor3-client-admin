@@ -1,12 +1,10 @@
 import { NavLink, useLocation } from 'react-router-dom';
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import routerlist from '@/constants/routes';
-import { Button, IconButton, Tooltip } from '@mui/material';
-export const Sidebar = ({ isExpand }): JSX.Element => {
+import { IconButton, Tooltip } from '@mui/material';
+export const Sidebar = ({ isExpand }: { isExpand?: boolean }): JSX.Element => {
+  const { t } = useTranslation('mainLayout');
   const [index, setIndex] = useState(null);
 
   const location = useLocation();
@@ -18,9 +16,10 @@ export const Sidebar = ({ isExpand }): JSX.Element => {
   return (
     // h-[var(--sidebarHeight)]
     <>
+      {/* <h1>{t('sidebar.CloudDinary')}</h1> */}
       {isExpand ? (
         <div
-          className={` pt-2 w-0 ${isExpand && '   !w-60'} bg-primary-color sticky top-[var(--headerHeight)] left-0 h-[var(--sidebarHeight)] col-span-1 `}>
+          className={` pt-2 w-0 ${isExpand && '!w-fit'} bg-primary-color sticky top-[var(--headerHeight)] left-0 h-[var(--sidebarHeight)] col-span-1 `}>
           <div className=" flex flex-col">
             {routerlist.map((router, i) => {
               const Icon = router.icon;
@@ -37,8 +36,8 @@ export const Sidebar = ({ isExpand }): JSX.Element => {
                     <div
                       className={
                         router.href === location.pathname
-                          ? 'bg-active rounded-md h-full px-4 flex gap-4 justify-start items-center w-3/4'
-                          : ' h-full px-4 flex gap-4 justify-start items-center w-3/4'
+                          ? 'bg-active rounded-md h-full px-4 flex gap-4 justify-start items-center w-full'
+                          : ' h-full px-4 flex gap-4 justify-start items-center w-full'
                       }>
                       <IconButton sx={{ transitionDuration: '0ms' }}>
                         <div className={router.href === location.pathname ? ' text-white ' : ' text-primary-text '}>
@@ -53,7 +52,8 @@ export const Sidebar = ({ isExpand }): JSX.Element => {
                               ? ' text-white font-semibold text-sm'
                               : ' text-primary-text font-semibold text-sm'
                           }>
-                          {router.title}
+                          {/* {t(`sidebar.${router.title}`)} */}
+                          {t(`sidebar.${router.title}`)}
                         </h1>
                       </IconButton>
                     </div>

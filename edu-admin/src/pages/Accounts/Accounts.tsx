@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Accounts = (): JSX.Element => {
   const [inputElement, setInputElement] = useState<HTMLInputElement | null>(null);
+  const { t } = useTranslation('mainLayout');
 
   const focusInput = () => {
     if (inputElement) {
