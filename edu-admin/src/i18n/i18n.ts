@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import MAINLAYOUT_EN from '@/constants/language/en/mainLayout.json';
 import MAINLAYOUT_VI from '@/constants/language/vi/mainLayout.json';
-import { useTranslation, initReactI18next } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 
 export const resources = {
   en: {
@@ -21,7 +21,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: 'vi',
+    lng: 'en',
     ns: ['mainLayout'],
     defaultNS,
     fallbackLng: 'en',
